@@ -1,0 +1,114 @@
+{
+  "profile": {
+    "id": 1,
+    "heroTitle": "hello samurai",
+    "name": "Jayendra Awasthi",
+    "tagline": "Full-stack developer & designer",
+    "bio": "Building thoughtful web experiences with Vue, Node, and a touch of craft.",
+    "email": "jayendraawasthi06@gmail.com",
+    "image": "https://srhslariat.com/wp-content/uploads/2024/02/The-Independent-Uganda-AI-Created-Art.jpg",
+    "location": "Tokyo-inspired studio",
+    "social": {
+      "github": "https://github.com",
+      "linkedin": "https://linkedin.com",
+      "twitter": "https://twitter.com"
+    }
+  },
+  "skills": [
+    {
+      "id": 1,
+      "category": "full-stack dev",
+      "items": [
+        "Node.js",
+        "Vue.js",
+        "HTML CSS JS",
+        "TypeScript"
+      ]
+    },
+    {
+      "id": 2,
+      "category": "designing",
+      "items": [
+        "Graphic designing",
+        "UI/UX designing",
+        "Video editing"
+      ]
+    },
+    {
+      "id": 3,
+      "category": "problem solving",
+      "items": [
+        "C++",
+        "Java",
+        "Algorithms"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "slug": "doc-udi",
+      "title": "DOC-UDI",
+      "shortDescription": "Document & UDI management platform for regulated industries.",
+      "description": "A full-stack product for tracking documents and unique device identifiers with role-based access, audit trails, and integrations.",
+      "tech": [
+        "Vue",
+        "Node.js",
+        "MongoDB",
+        "Python"
+      ],
+      "imageUrl": "/placeholder-project.svg"
+    },
+    {
+      "id": 2,
+      "slug": "sakura-dashboard",
+      "title": "Sakura Dashboard",
+      "shortDescription": "Japanese-themed analytics dashboard with real-time charts.",
+      "description": "Portfolio-style dashboard using Vue 3, Pinia, and REST APIs with a minimal red-and-ink visual language.",
+      "tech": [
+        "Vue 3",
+        "Pinia",
+        "Vite",
+        "Tailwind CSS"
+      ],
+      "imageUrl": "/placeholder-project.svg"
+    },
+    {
+      "id": 3,
+      "slug": "mono-api",
+      "title": "Mono API Gateway",
+      "shortDescription": "Lightweight API gateway for microservices.",
+      "description": "Routing, rate limiting, and observability hooks for small teams running Node services behind a single entry point.",
+      "tech": [
+        "Node.js",
+        "Express",
+        "Redis"
+      ],
+      "imageUrl": "/placeholder-project.svg"
+    }
+  ],
+  "experiences": [
+    {
+      "id": 1,
+      "dateRange": "16 Jul 2021 — 16 Aug 2021",
+      "title": "WEB-DEV intern",
+      "company": "Some Company",
+      "description": "Worked with the web dev team on internal projects involving HTML, CSS, JS and PHP with Bootstrap."
+    },
+    {
+      "id": 2,
+      "dateRange": "2022 — Present",
+      "title": "Frontend Engineer",
+      "company": "Digital Studio",
+      "description": "Led UI implementation for client portals, design system adoption, and performance tuning on Vue-based stacks."
+    }
+  ],
+  "messages": [
+    {
+      "id": 1777984961321,
+      "email": "d@sadf.c",
+      "subject": "sadf",
+      "body": "asfd"
+    }
+  ]
+}

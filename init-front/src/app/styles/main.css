@@ -1,0 +1,125 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+@import "tw-animate-css";
+@import "shadcn-vue/tailwind.css";
+@import "@fontsource-variable/inter";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme (warm paper) — not pure white */
+    --background: 35 35% 96%;
+    --foreground: 240 10% 10%;
+    --card: 35 35% 98%;
+    --card-foreground: 240 10% 10%;
+    --popover: 35 35% 98%;
+    --popover-foreground: 240 10% 10%;
+
+    --primary: 350 70% 38%;
+    --primary-foreground: 35 40% 98%;
+    --secondary: 30 18% 90%;
+    --secondary-foreground: 240 10% 16%;
+    --muted: 30 16% 92%;
+    --muted-foreground: 240 6% 42%;
+    --accent: 25 30% 88%;
+    --accent-foreground: 240 10% 14%;
+
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 35 40% 98%;
+    --border: 30 12% 84%;
+    --input: 30 12% 84%;
+    --ring: 350 70% 38%;
+    --radius: 0.625rem;
+    --ink: 240 10% 10%;
+    --vermillion: 350 72% 34%;
+    --paper: 35 35% 96%;
+
+    --chart-1: 350 72% 34%;
+    --chart-2: 350 58% 26%;
+    --chart-3: 210 14% 46%;
+    --chart-4: 30 20% 72%;
+    --chart-5: 240 10% 12%;
+
+    --sidebar: 30 20% 94%;
+    --sidebar-foreground: 240 10% 12%;
+    --sidebar-primary: 350 70% 38%;
+    --sidebar-primary-foreground: 35 40% 98%;
+    --sidebar-accent: 25 22% 88%;
+    --sidebar-accent-foreground: 240 10% 14%;
+    --sidebar-border: 30 12% 82%;
+    --sidebar-ring: 350 70% 38%;
+
+    /* Card shadow differs per theme (used by `shared/ui/card`). */
+    --shadow: 0 1px 2px hsl(240 10% 10% / 0.06);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    @apply font-sans;
+  }
+
+  body {
+    @apply min-h-screen font-sans antialiased bg-background text-foreground;
+  }
+  .theme {
+    --font-heading: var(--font-sans);
+    --font-sans: 'Inter Variable', sans-serif;
+  }
+
+  .dark {
+    --background: 350 10% 4%;
+    --foreground: 0 0% 95%;
+    --card: 350 10% 6%;
+    --card-foreground: 0 0% 95%;
+    --popover: 350 10% 6%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 350 80% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 350 10% 12%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 350 10% 12%;
+    --muted-foreground: 350 5% 60%;
+    --accent: 350 30% 12%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 80% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 350 15% 15%;
+    --input: 350 15% 15%;
+    --ring: 350 80% 48%;
+
+    --chart-1: 350 72% 34%;
+    --chart-2: 350 62% 22%;
+    --chart-3: 0 0% 72%;
+    --chart-4: 240 6% 14%;
+    --chart-5: 0 0% 96%;
+
+    --sidebar: 240 6% 6%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 350 72% 34%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 6% 14%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 350 22% 18%;
+    --sidebar-ring: 350 72% 34%;
+
+    /* Dark theme: make shadow distinct (reddish glow). */
+    --shadow: 0 10px 26px hsl(var(--primary) / 0.22);
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
