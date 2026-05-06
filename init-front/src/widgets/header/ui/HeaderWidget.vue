@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { onClickOutside, useDark, useToggle } from '@vueuse/core'
+import { Menu, Moon, Sun, X } from 'lucide-vue-next'
+import { computed, ref, useTemplateRef } from 'vue'
 import type { RouteLocationRaw } from 'vue-router'
-import { Github, Linkedin, Menu, Moon, Sun, X } from 'lucide-vue-next'
-import { useDark, useToggle, onClickOutside } from '@vueuse/core'
-import { useTemplateRef } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
 
 
-import { Button } from '@/shared/ui/button'
 import { RouteNames } from '@/app/router'
+import { Button } from '@/shared/ui/button'
 import { Separator } from '@/shared/ui/separator'
 
 const headerRef = useTemplateRef<HTMLDivElement>('headerRef')
@@ -88,18 +87,15 @@ onClickOutside(headerRef, () => {
             {{ p.label }}
           </RouterLink>
         </section>
-
-        <div class="hidden items-center gap-1 lg:flex">
-          <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub"
-            class="inline-flex size-10 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
-            <Github class="size-5" />
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"
-            class="inline-flex size-10 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
-            <Linkedin class="size-5" />
-          </a>
-        </div>
       </nav>
+
+      <Button variant="outline" size="icon" class="shrink-0 relative cursor-pointer hidden md:inline-flex"
+        aria-label="Theme Toggle" @click="toggleDark()">
+        <Sun class="size-5 transition-all duration-200"
+          :class="isDark ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'" />
+        <Moon class="absolute size-5 transition-all duration-200"
+          :class="isDark ? 'rotate-90 scale-0 opacity-0' : 'rotate-0 scale-100 opacity-100'" />
+      </Button>
 
       <Button variant="outline" size="icon" class="md:hidden cursor-pointer" aria-label="Menu" @click="open = !open">
         <Menu v-if="!open" class="size-5" />
