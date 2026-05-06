@@ -3,12 +3,15 @@ import { computed, ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import type { RouteLocationRaw } from 'vue-router'
 import { Github, Linkedin, Menu, Moon, Sun, X } from 'lucide-vue-next'
-import { useDark, useToggle } from '@vueuse/core'
+import { useDark, useToggle, onClickOutside } from '@vueuse/core'
+import { useTemplateRef } from 'vue'
+
 
 import { Button } from '@/shared/ui/button'
 import { RouteNames } from '@/app/router'
 import { Separator } from '@/shared/ui/separator'
 
+const headerRef = useTemplateRef<HTMLDivElement>('headerRef')
 const route = useRoute()
 const open = ref(false)
 
@@ -46,10 +49,17 @@ const toggleDark = useToggle(isDark);
 function closeMenu() {
   open.value = false
 }
+
+onClickOutside(headerRef, () => {
+  if (open.value) {
+    open.value = false
+  }
+  console.log('clicked outside')
+})
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
+  <header ref="headerRef" class="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
     <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 md:px-6">
       <RouterLink to="/"
         class="font-display text-xl font-bold tracking-widest text-foreground uppercase flex items-center gap-2 group">
@@ -91,14 +101,14 @@ function closeMenu() {
         </div>
       </nav>
 
-      <Button variant="outline" size="icon" class="md:hidden" aria-label="Menu" @click="open = !open">
+      <Button variant="outline" size="icon" class="md:hidden cursor-pointer" aria-label="Menu" @click="open = !open">
         <Menu v-if="!open" class="size-5" />
         <X v-else class="size-5" />
       </Button>
     </div>
 
     <div v-if="open"
-      class="absolute top-full left-0 w-full bg-background/100 border-t shadow-md border-border/60 px-4 py-4 md:hidden">
+      class="absolute top-full left-0 w-full bg-background border-t shadow-md border-border/60 px-4 py-4 md:hidden">
       <div class="flex flex-col gap-3 [&>a:hover]:text-primary">
         <RouterLink v-for="item in nav" :key="`m-${item.label}`" :to="item.to"
           class="text-sm font-medium uppercase tracking-widest text-muted-foreground" @click="closeMenu">
@@ -109,7 +119,8 @@ function closeMenu() {
           class="text-sm font-medium uppercase tracking-widest text-muted-foreground" @click="closeMenu">
           {{ p.label }}
         </RouterLink>
-        <Button variant="outline" size="icon" class="relative" aria-label="Theme Toggle" @click="toggleDark()">
+        <Button variant="outline" size="icon" class="relative cursor-pointer" aria-label="Theme Toggle"
+          @click="toggleDark()">
           <Sun class="size-5 transition-all duration-200"
             :class="isDark ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-0 opacity-0'" />
           <Moon class="absolute size-5 transition-all duration-200"

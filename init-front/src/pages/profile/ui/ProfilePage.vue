@@ -1,11 +1,13 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { UserIcon } from 'lucide-vue-next'
+
 import { PageTemplate } from '@/shared/ui/templates'
 import { Avatar } from '@/shared/ui/avatar'
 import { AvatarImage } from '@/shared/ui/avatar'
 import { AvatarFallback } from '@/shared/ui/avatar'
 import { useProfileStore } from '@/entities/profile'
-import { onMounted } from 'vue'
-import { UserIcon } from 'lucide-vue-next'
+import { Card } from '@/shared/ui/card'
 
 const profileStore = useProfileStore()
 
@@ -16,7 +18,7 @@ onMounted(() => {
 
 <template>
     <PageTemplate>
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+        <Card class="flex flex-col gap-4 p-4 sm:flex-row sm:items-start">
             <Avatar size="lg" shape="square" class="shrink-0 self-start">
                 <AvatarImage v-if="profileStore.profile" :src="profileStore.profile.image" alt="profile image" />
                 <AvatarFallback v-else>
@@ -32,6 +34,6 @@ onMounted(() => {
                     <p class="break-words text-sm text-muted-foreground">{{ profileStore.profile?.location }}</p>
                 </div>
             </div>
-        </div>
+        </Card>
     </PageTemplate>
 </template>

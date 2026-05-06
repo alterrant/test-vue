@@ -10,9 +10,9 @@ const props = defineProps<{
 const delegatedClass = computed(() =>
   cn(
     [
-      'rounded-lg border border-border bg-card text-card-foreground shadow-[var(--shadow)]',
+      'rounded-lg border border-border bg-card text-card-foreground shadow',
       // Keep a subtle ring in dark mode; shadow color is controlled via CSS variables.
-      'dark:border-border/80 dark:ring-1 dark:ring-white/5',
+      'dark:border-border/80 dark:ring-1 dark:ring-white/5 dark:shadow-md',
     ],
     props.class,
   ),

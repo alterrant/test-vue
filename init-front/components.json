@@ -4,7 +4,6 @@
   "font": "dm-sans",
   "typescript": true,
   "tailwind": {
-    "config": "tailwind.config.cjs",
     "css": "src/app/styles/main.css",
     "baseColor": "taupe",
     "cssVariables": true,

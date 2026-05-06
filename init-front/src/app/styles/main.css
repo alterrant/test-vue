@@ -1,13 +1,72 @@
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+@import "@fontsource-variable/inter";
+
+@import "tailwindcss";
 
 @import "tw-animate-css";
 @import "shadcn-vue/tailwind.css";
-@import "@fontsource-variable/inter";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@theme {
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-ink: hsl(var(--ink));
+  --color-vermillion: hsl(var(--vermillion));
+  --color-paper: hsl(var(--paper));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-display: Outfit, "DM Sans", system-ui, sans-serif;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  --shadow-sm: var(--shadow-sm-value);
+  --shadow: var(--shadow-value);
+  --shadow-md: var(--shadow-md-value);
+  --shadow-lg: var(--shadow-lg-value);
+  --shadow-xl: var(--shadow-xl-value);
+  --shadow-2xl: var(--shadow-2xl-value);
+  --shadow-inner: inset 0 1px 2px hsl(240 10% 10% / 0.08);
+  --shadow-none: 0 0 #0000;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
 
 @layer base {
   :root {
@@ -53,8 +112,15 @@
     --sidebar-border: 30 12% 82%;
     --sidebar-ring: 350 70% 38%;
 
-    /* Card shadow differs per theme (used by `shared/ui/card`). */
-    --shadow: 0 1px 2px hsl(240 10% 10% / 0.06);
+    --shadow-sm-value: 0 1px 2px hsl(240 10% 10% / 0.06);
+    --shadow-value: 0 1px 2px hsl(240 10% 10% / 0.08), 0 14px 34px hsl(240 10% 10% / 0.10);
+    --shadow-md-value: 0 2px 6px hsl(240 10% 10% / 0.10), 0 18px 44px hsl(240 10% 10% / 0.12);
+    --shadow-lg-value: 0 8px 18px hsl(240 10% 10% / 0.12), 0 28px 72px hsl(240 10% 10% / 0.14);
+    --shadow-xl-value: 0 12px 28px hsl(240 10% 10% / 0.14), 0 40px 120px hsl(240 10% 10% / 0.16);
+    --shadow-2xl-value: 0 18px 44px hsl(240 10% 10% / 0.16), 0 60px 180px hsl(240 10% 10% / 0.18);
+
+    /* Back-compat (if something uses `var(--shadow)` directly). */
+    --shadow: var(--shadow-value);
   }
 
   html {
@@ -108,8 +174,15 @@
     --sidebar-border: 350 22% 18%;
     --sidebar-ring: 350 72% 34%;
 
-    /* Dark theme: make shadow distinct (reddish glow). */
-    --shadow: 0 10px 26px hsl(var(--primary) / 0.22);
+    --shadow-sm-value: 0 1px 2px hsl(0 0% 0% / 0.30);
+    --shadow-value: 0 10px 26px hsl(var(--primary) / 0.22);
+    --shadow-md-value: 0 12px 30px hsl(var(--primary) / 0.24);
+    --shadow-lg-value: 0 18px 46px hsl(var(--primary) / 0.26);
+    --shadow-xl-value: 0 24px 66px hsl(var(--primary) / 0.28);
+    --shadow-2xl-value: 0 34px 92px hsl(var(--primary) / 0.30);
+
+    /* Back-compat (if something uses `var(--shadow)` directly). */
+    --shadow: var(--shadow-value);
   }
 }
 
