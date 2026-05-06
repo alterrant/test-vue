@@ -8,6 +8,7 @@ import { AvatarImage } from '@/shared/ui/avatar'
 import { AvatarFallback } from '@/shared/ui/avatar'
 import { useProfileStore } from '@/entities/profile'
 import { Card } from '@/shared/ui/card'
+import { Tabs, TabsContent, TabsTrigger, TabsList } from '@/shared/ui/tabs'
 
 const profileStore = useProfileStore()
 
@@ -17,7 +18,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <PageTemplate>
+    <PageTemplate class="flex flex-col gap-8">
         <Card class="flex flex-col gap-4 p-4 sm:flex-row sm:items-start">
             <Avatar size="lg" shape="square" class="shrink-0 self-start">
                 <AvatarImage v-if="profileStore.profile" :src="profileStore.profile.image" alt="profile image" />
@@ -35,5 +36,24 @@ onMounted(() => {
                 </div>
             </div>
         </Card>
+
+        <Tabs defaultValue="test1">
+            <TabsList class="mb-4">
+                <TabsTrigger value="test1">
+                    Test1
+                </TabsTrigger>
+                <TabsTrigger value="test2">
+                    Test2
+                </TabsTrigger>
+            </TabsList>
+            <Card class="p-4 shadow-none dark:none">
+                <TabsContent value="test1">
+                    Test1 Content
+                </TabsContent>
+                <TabsContent value="test2">
+                    Test2 Content
+                </TabsContent>
+            </Card>
+        </Tabs>
     </PageTemplate>
 </template>

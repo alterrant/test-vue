@@ -6,6 +6,8 @@
 @import "tw-animate-css";
 @import "shadcn-vue/tailwind.css";
 
+@custom-variant dark (&:is(.dark *));
+
 @theme {
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
@@ -186,11 +188,22 @@
   }
 }
 
-
-
 @layer base {
   * {
     @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  --font-heading: var(--font-sans);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
