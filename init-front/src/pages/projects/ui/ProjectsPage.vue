@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { RouterLink } from 'vue-router'
 
 import { useProjectStore } from '@/entities/project'
 import { Badge } from '@/shared/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/ui/card'
-import { PageTemplate } from '@/shared/ui/templates'
+import { PageHeaderTemplate, PageTemplate } from '@/shared/ui/templates'
 
 const projectStore = useProjectStore()
 
@@ -16,17 +15,8 @@ onMounted(() => {
 
 <template>
   <PageTemplate>
-    <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-      <div>
-        <h1 class="font-display text-3xl font-semibold text-paper md:text-4xl">All projects</h1>
-        <p class="mt-2 max-w-xl text-sm text-muted-foreground">
-          Full list loaded from the API. Anchor links jump to a project card.
-        </p>
-      </div>
-      <RouterLink to="/" class="text-sm font-medium uppercase tracking-widest text-primary hover:underline">
-        Back to home
-      </RouterLink>
-    </div>
+    <PageHeaderTemplate title="All projects"
+      description="Full list loaded from the API. Anchor links jump to a project card." />
 
     <div v-if="projectStore.loading" class="grid gap-6 md:grid-cols-2">
       <div v-for="i in 4" :key="i" class="h-64 animate-pulse rounded-lg bg-muted" />

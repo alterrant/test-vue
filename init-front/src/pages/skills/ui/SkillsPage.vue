@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
-import { RouterLink } from 'vue-router'
 
 import { useSkillStore } from '@/entities/skill'
 import { Badge } from '@/shared/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/shared/ui/card'
-import { PageTemplate } from '@/shared/ui/templates'
+import { PageHeaderTemplate, PageTemplate } from '@/shared/ui/templates'
 
 const skillStore = useSkillStore()
 
@@ -16,17 +15,8 @@ onMounted(() => {
 
 <template>
   <PageTemplate>
-    <div class="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-      <div>
-        <h1 class="font-display text-3xl font-semibold text-paper md:text-4xl">All skills</h1>
-        <p class="mt-2 max-w-xl text-sm text-muted-foreground">
-          Same categories as the home section, expanded for a dedicated route.
-        </p>
-      </div>
-      <RouterLink to="/" class="text-sm font-medium uppercase tracking-widest text-primary hover:underline">
-        Back to home
-      </RouterLink>
-    </div>
+    <PageHeaderTemplate title="All skills"
+      description="Same categories as the home section, expanded for a dedicated route." />
 
     <div v-if="skillStore.loading" class="grid gap-6 md:grid-cols-3">
       <div v-for="i in 3" :key="i" class="h-56 animate-pulse rounded-lg bg-muted" />
