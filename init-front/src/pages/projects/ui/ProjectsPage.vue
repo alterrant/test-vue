@@ -26,8 +26,8 @@ onMounted(() => {
 
     <div v-else class="grid gap-8 md:grid-cols-2">
       <Card v-for="project in projectStore.projects" :id="project.slug" :key="project.id"
-        class="scroll-mt-28 border-border/60 bg-card/90">
-        <div class="relative aspect-video w-full overflow-hidden border-b border-border/60 bg-secondary/30">
+        class="scroll-mt-28 border-border/60 bg-card/90 overflow-hidden">
+        <div class="relative aspect-video w-full  border-b border-border/60 bg-secondary/30">
           <img :src="project.imageUrl" :alt="project.title" class="h-full w-full object-cover" loading="lazy" />
         </div>
         <CardHeader>
